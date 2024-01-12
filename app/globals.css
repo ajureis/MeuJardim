@@ -3,25 +3,92 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --main-green: #587a3a;
+  --secondary-green: #719d4a;
+  --main-light-grey: #F7F7F7;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color:#4c4c4c;
+  background: var(--main-light-grey);
+  font-family: var(--font-nunito);
+}
+
+.header .icons {
+  padding: 4px 6px;
+  border-radius: 4px;
+  width: 36px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .notification {
+  position: relative;
+}
+
+.header .icons .have-notification {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #EB5756;
+  border-radius: 50%;
+  top: 9px;
+  right: 8px;
+}
+
+.sticky-aside.open {
+  position: fixed;
+  background: #fff;
+  width: 96%;
+  top: 48px;
+  z-index: 10;
+  
+}
+
+@media (min-width: 768px){
+  .sticky-aside {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 98px; /* Altura do Header */
+    height: calc(100vh - 98px); /* Altura da tela - Altura do Header */
+  }
+}
+
+.feed .container-image {
+  width: 100%;  
+  max-height: 350px;
+  min-height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+}
+
+.feed .main-card .title,
+.feed .card .title {
+  font-family: var(--font-libre_baskerville);
+}
+
+.article  h1 { 
+  font-family: var(--font-libre_baskerville);
+}
+
+.article .content p {
+  margin-bottom: 16px;
+  line-height: 32px;
+}
+
+.article .content ol {
+  list-style: decimal;
+  margin-left: 34px;
+  margin-bottom: 16px;
+}
+
+.article figcaption {
+  font-size: 11px;
 }
