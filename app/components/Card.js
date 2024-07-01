@@ -7,7 +7,13 @@ export default function Card({ title, image, tag, url, author }) {
 		<div className="card ">
 			<div className="mb-2 relative" style={{ width: "100%", height: "240px" }}>
 				<Link href={url}>
-					<Image src={image} alt={title} className="rounded-lg" layout="fill" objectFit="cover" />
+					<Image
+						src={image}
+						alt={title}
+						className="rounded-lg"
+						fill
+						style={{ objectFit: "cover" }}
+					/>
 				</Link>
 				<span className="p-1 absolute bottom-3 left-2 text-xs text-white bg-secondary-green rounded inline">
 					{tag}

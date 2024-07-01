@@ -40,8 +40,8 @@ export default async function ArticlePage({ params }) {
 							src={article.image}
 							alt=""
 							className="rounded-lg"
-							layout="fill"
-							objectFit="cover"
+							fill
+							style={{ objectFit: "cover" }}
 						/>
 					</div>
 					<figcaption className="mt-2 mb-4 italic text-gray-600">{article.figcaption}</figcaption>

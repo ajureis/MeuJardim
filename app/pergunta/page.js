@@ -25,8 +25,8 @@ export default function Pergunta() {
 		<div className="container mx-auto py-4">
 			<h1 className="text-3xl  mb-3">Está com alguma dúvida?</h1>
 			<p className="mb-8">
-				Temos especialistas especialista em plantas, fornecendo informações e
-				dicas para cultivar com sucesso.
+				Temos especialistas especialista em plantas, fornecendo informações e dicas para cultivar
+				com sucesso.
 			</p>
 			<div className="question-container flex mt-4">
 				<div className="user-image mr-3">
@@ -48,12 +48,9 @@ export default function Pergunta() {
 					/>
 
 					<div className="flex items-center justify-between mt-2">
-						<div
-							{...getRootProps()}
-							className="flex items-center mt-1 cursor-pointer">
+						<div {...getRootProps()} className="flex items-center mt-1 cursor-pointer">
 							<input {...getInputProps()} />
-							<RiImageAddLine size={23} />{" "}
-							<span className="text-xs ml-2">Adicionar imagem</span>
+							<RiImageAddLine size={23} /> <span className="text-xs ml-2">Adicionar imagem</span>
 						</div>
 						<button
 							className="text-white bg-main-green px-2 md:px-4 py-1 md:py-2 rounded-md text-sm"

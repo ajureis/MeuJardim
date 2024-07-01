@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function MainCard({ tag, title, url, author, image }) {
 	return (
 		<div className="relative w-full h-64 rounded mb-4 overflow-hidden">
-			<Image src={image} alt={title} layout="fill" objectFit="cover" className="rounded" />
+			<Image src={image} alt={title} fill style={{ objectFit: "cover" }} className="rounded" />
 			<div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
 				<div className="tag p-1 text-xs text-white bg-secondary-green rounded inline-block max-w-max">
 					<p>{tag}</p>
