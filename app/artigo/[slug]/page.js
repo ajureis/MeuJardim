@@ -1,18 +1,28 @@
 import Image from "next/image";
-import Reactmarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import Link from "next/link";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 import { RiBookmarkLine } from "react-icons/ri";
-import articleData from "../data/article";
+import { getArticleBySlug, getAllArticles } from "../../data/article";
 
-export const metadata = {
-	title:
-		"Meu Jardim - Revolução Verde Doméstica: tendência de cultivo de plantas em casa ganha força, impulsionada por tecnologia e sustentabilidade",
-	description: "Meu Jardim",
-};
+export async function generateStaticParams() {
+	const articles = getAllArticles();
+	return articles.map((article) => ({
+		slug: article.slug,
+	}));
+}
 
-export default function Article() {
-	const article = articleData[0];
+export async function generateMetadata({ params }) {
+	const article = getArticleBySlug(params.slug);
+	return {
+		title: `Meu Jardim - ${article.title}`,
+		description: article.description || "Meu Jardim",
+	};
+}
+
+export default async function ArticlePage({ params }) {
+	const article = getArticleBySlug(params.slug);
+
 	return (
 		<>
 			<section className="container flex gap-5 mb-14 article">
@@ -34,9 +44,7 @@ export default function Article() {
 							objectFit="cover"
 						/>
 					</div>
-					<figcaption className="mt-2 mb-4 italic text-gray-600">
-						{article.figcaption}
-					</figcaption>
+					<figcaption className="mt-2 mb-4 italic text-gray-600">{article.figcaption}</figcaption>
 					<div className="flex items-center justify-between">
 						<Link href="#">
 							<p className="p-1 text-xs text-white bg-secondary-green rounded inline">
@@ -55,10 +63,10 @@ export default function Article() {
 								{article.author}
 							</Link>
 						</p>{" "}
-						|<p>{article.data}</p>
+						|<p>{article.date}</p>
 					</div>
 					<div className="content mt-10 text-lg">
-						<Reactmarkdown>{article.text}</Reactmarkdown>
+						<ReactMarkdown>{article.text}</ReactMarkdown>
 					</div>
 				</article>
 			</section>
