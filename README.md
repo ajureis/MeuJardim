@@ -1,4 +1,4 @@
-## Projeto Final MBA Full Stack
+## Projeto MBA Full Stack
 
 🌱 Meu Jardim 
 
